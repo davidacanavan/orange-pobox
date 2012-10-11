@@ -1,5 +1,6 @@
 package com.orange.pobox;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 import android.content.Context;
@@ -10,6 +11,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.location.Location;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -44,8 +46,9 @@ public class StoreActivity extends MapActivity
      int latitude = creator.getIntExtra(INTENT_INPUT_LATITUDE, 0);
      int longitude = creator.getIntExtra(INTENT_INPUT_LONGITUDE, 0);
      locations = StoreLocation.loadClosest(db, latitude, longitude);
-     ListView storeListView = (ListView) findViewById(R.id.sa_list);
-     storeListView.setAdapter(new StoreListAdapter(this, locations));
+     storeListView = (ListView) findViewById(R.id.sa_list);
+     GeoPoint centre = new GeoPoint(latitude, longitude);
+     storeListView.setAdapter(new StoreListAdapter(this, locations, centre));
      storeListView.setOnItemClickListener(new AdapterView.OnItemClickListener()
      {
         public void onItemClick(AdapterView<?> adapter, View view, int position, long arg3)
@@ -54,7 +57,7 @@ public class StoreActivity extends MapActivity
         }
      });
      db.close();
-     this.loadMapOverlay(mapView, new GeoPoint(latitude, longitude), locations);
+     this.loadMapOverlay(mapView, centre, locations);
     }
     
     private void loadMapOverlay(MapView mapView, GeoPoint point, List<StoreLocation> locations)
@@ -65,12 +68,18 @@ public class StoreActivity extends MapActivity
      Drawable greenDot = resources.getDrawable(R.drawable.green_dot);
      greenDot = resize(resources, greenDot, 20, 20);
      
-     LocationOverlay greenDotOverlay = new LocationOverlay(greenDot, this);
+     LocationOverlay greenDotOverlay = new LocationOverlay(greenDot, null);
      OverlayItem overlayItem = new OverlayItem(point, "", "");
      greenDotOverlay.addOverlay(overlayItem);
      mapOverlays.add(greenDotOverlay);
      
-     LocationOverlay storeOverlay = new LocationOverlay(mapMarker, this);
+     LocationOverlay storeOverlay = new LocationOverlay(mapMarker, new LocationOverlay.OnMapOverlayTapListener()
+     {
+        public void overlayTapped(int index)
+        {
+         mapOverlayItemClicked(index);
+        }
+     });
      
          for (StoreLocation location : locations)
          {
@@ -86,6 +95,12 @@ public class StoreActivity extends MapActivity
     private void listItemClicked(int position)
     {
      mapView.getController().animateTo(locations.get(position).getGeoPoint());
+    }
+
+    private void mapOverlayItemClicked(int index)
+    {
+     storeListView.smoothScrollToPosition(index);
+     storeListView.setSelection(index);
     }
     
     private Drawable resize(Resources resources, Drawable image, int dpWidth, int dpHeight) 
@@ -104,10 +119,12 @@ public class StoreActivity extends MapActivity
 
     private static class StoreListAdapter implements ListAdapter
     {
-        public StoreListAdapter(Context context, List<StoreLocation> locations)
+        public StoreListAdapter(Context context, List<StoreLocation> locations, GeoPoint centre)
         {
          this.locations = locations;
          this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+         this.centre = createFromGeoPoint(centre);
+         this.formatter = new DecimalFormat("#.#");
         }
         
         public int getCount()
@@ -146,8 +163,9 @@ public class StoreActivity extends MapActivity
                  holder = (ViewHolder) view.getTag();
 
          StoreLocation location = locations.get(position);
+         String distance = formatter.format(centre.distanceTo(createFromGeoPoint(location.getGeoPoint())) / METRES_PER_KM);
          holder.setTitle(location.getStreet());
-         holder.setSubTitle(location.getRestOfAddress());
+         holder.setSubTitle(location.getRestOfAddress() + " (" + distance + "km)");
          return view;
         }
 
@@ -205,12 +223,24 @@ public class StoreActivity extends MapActivity
          private TextView title, subTitle;
         }
         
+        private Location createFromGeoPoint(GeoPoint point)
+        {
+         Location location = new Location("");
+         location.setLatitude(point.getLatitudeE6() / 1E6f);
+         location.setLongitude(point.getLongitudeE6() / 1E6f);
+         return location;
+        }
+        
      private LayoutInflater inflater;
      private List<StoreLocation> locations;
+     private Location centre;
+     private DecimalFormat formatter;
     }
     
  private MapView mapView;
+ private ListView storeListView;
  private List<StoreLocation> locations;
  public static final int DEFAULT_MAP_ZOOM = 16;
  public static final String INTENT_INPUT_LATITUDE = "lat", INTENT_INPUT_LONGITUDE = "long";
+ private static final int METRES_PER_KM = 1000;
 }
