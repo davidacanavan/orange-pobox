@@ -1,0 +1,12 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="AppTheme" parent="android:Theme.Light" />
+    <style name="large_text" parent = "@android:style/TextAppearance.Large">
+        <item name = "android:textColor">#FDDD73</item>
+        <item name = "android:textSize">25sp</item>
+    </style>
+    <style name="medium_text" parent = "@android:style/TextAppearance.Medium">
+        <item name = "android:textColor">#E4C768</item>
+    </style>
+
+</resources>
