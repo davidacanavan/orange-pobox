@@ -4,13 +4,19 @@ import java.util.List;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.database.DataSetObserver;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -19,8 +25,11 @@ import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
+import com.google.android.maps.Overlay;
+import com.google.android.maps.OverlayItem;
 import com.orange.pobox.db.Database;
 import com.orange.pobox.db.StoreLocation;
+import com.orange.pobox.maps.LocationOverlay;
 
 public class StoreActivity extends MapActivity
 {
@@ -34,16 +43,58 @@ public class StoreActivity extends MapActivity
      Intent creator = this.getIntent();
      int latitude = creator.getIntExtra(INTENT_INPUT_LATITUDE, 0);
      int longitude = creator.getIntExtra(INTENT_INPUT_LONGITUDE, 0);
-     ((ListView) findViewById(R.id.sa_list)).setAdapter(new StoreListAdapter(this, StoreLocation.loadClosest(db, latitude, longitude)));
+     locations = StoreLocation.loadClosest(db, latitude, longitude);
+     ListView storeListView = (ListView) findViewById(R.id.sa_list);
+     storeListView.setAdapter(new StoreListAdapter(this, locations));
+     storeListView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+     {
+        public void onItemClick(AdapterView<?> adapter, View view, int position, long arg3)
+        {
+         listItemClicked(position);
+        }
+     });
      db.close();
-     //this.loadMapOverlay(mapView, new GeoPoint((int) (40.778624 * 1E6), (int) (-73.953567 * 1E6)));
+     this.loadMapOverlay(mapView, new GeoPoint(latitude, longitude), locations);
     }
     
-    private void loadMapOverlay(MapView mapView, GeoPoint point)
+    private void loadMapOverlay(MapView mapView, GeoPoint point, List<StoreLocation> locations)
     {
+     Resources resources = this.getResources();
+     List<Overlay> mapOverlays = mapView.getOverlays(); // TODO allow for the center point to not be bottom aligned
+     Drawable mapMarker = resources.getDrawable(R.drawable.google_map_marker);
+     Drawable greenDot = resources.getDrawable(R.drawable.green_dot);
+     greenDot = resize(resources, greenDot, 20, 20);
+     
+     LocationOverlay greenDotOverlay = new LocationOverlay(greenDot, this);
+     OverlayItem overlayItem = new OverlayItem(point, "", "");
+     greenDotOverlay.addOverlay(overlayItem);
+     mapOverlays.add(greenDotOverlay);
+     
+     LocationOverlay storeOverlay = new LocationOverlay(mapMarker, this);
+     
+         for (StoreLocation location : locations)
+         {
+          storeOverlay.addOverlay(new OverlayItem(location.getGeoPoint(), "", ""));
+          mapOverlays.add(storeOverlay);
+         }
+
      MapController controller = mapView.getController();
      controller.setZoom(DEFAULT_MAP_ZOOM);
      controller.setCenter(point);
+    }
+    
+    private void listItemClicked(int position)
+    {
+     mapView.getController().animateTo(locations.get(position).getGeoPoint());
+    }
+    
+    private Drawable resize(Resources resources, Drawable image, int dpWidth, int dpHeight) 
+    {
+     Bitmap d = ((BitmapDrawable) image).getBitmap();
+     int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dpWidth, resources.getDisplayMetrics());
+     int height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dpHeight, resources.getDisplayMetrics());
+     Bitmap bitmapOrig = Bitmap.createScaledBitmap(d, width, height, false);
+     return new BitmapDrawable(resources, bitmapOrig);
     }
     
     protected boolean isRouteDisplayed()
@@ -125,12 +176,12 @@ public class StoreActivity extends MapActivity
 
         public boolean areAllItemsEnabled()
         {
-         return false;
+         return true;
         }
 
         public boolean isEnabled(int position)
         {
-         return false;
+         return true;
         }
         
         private static class ViewHolder
@@ -159,6 +210,7 @@ public class StoreActivity extends MapActivity
     }
     
  private MapView mapView;
+ private List<StoreLocation> locations;
  public static final int DEFAULT_MAP_ZOOM = 16;
  public static final String INTENT_INPUT_LATITUDE = "lat", INTENT_INPUT_LONGITUDE = "long";
 }
