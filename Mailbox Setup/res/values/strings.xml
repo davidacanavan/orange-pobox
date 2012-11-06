@@ -7,5 +7,30 @@
     <string name="ups_mailbox_setup">UPS Mailbox Setup</string>
     <string name="pick_by_current_location">Pick by current location...</string>
     <string name="select">Select</string>
-
+    
+    <string-array name="countries">
+		<item>Select country</item>
+		<item>USA</item>
+		<item>Canada</item>
+		<item>Ireland</item>
+	</string-array>
+	
+	<string-array name="cities_canada">
+		<item>Toronto</item>
+		<item>Montreal</item>
+		<item>Vancouver</item>
+	</string-array>
+	
+	<string-array name="cities_ireland">
+		<item>Dublin</item>
+		<item>Gallway</item>
+		<item>Cork</item>
+	</string-array>
+	
+		<string-array name="cities_usa">
+		<item>New York</item>
+		<item>Chicago</item>
+		<item>Denver</item>
+	</string-array>
+	
 </resources>

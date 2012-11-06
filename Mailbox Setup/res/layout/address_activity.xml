@@ -30,7 +30,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="UPS Mailbox Setup"
-                    android:textAppearance="@style/large_text" />
+                    android:textAppearance="@style/large_text" /> 
 
                 <TextView
                     android:id="@+id/textView3"
@@ -38,9 +38,26 @@
                     android:layout_height="wrap_content"
                     android:text="Pick by store address..."
                     android:textAppearance="@style/medium_text" />
-
+                			
             </LinearLayout>
         </RelativeLayout>
     </LinearLayout>
+    
+                <Spinner
+ 				   android:id="@+id/countries_spinner"
+ 				   android:entries="@array/countries"
+    			   android:layout_width="fill_parent"
+    			   android:layout_height="wrap_content"/>
 
+                <Spinner
+ 				   android:id="@+id/cities_spinner"
+    			   android:layout_width="fill_parent"
+    			   android:layout_height="wrap_content"
+    			   android:cacheColorHint="#00000000" />
+                
+                <Button android:id="@+id/find_store"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="Find a store" 
+		            android:onClick="findStore"/>
 </LinearLayout>

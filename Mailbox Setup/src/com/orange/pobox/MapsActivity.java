@@ -30,7 +30,7 @@ public class MapsActivity extends MapActivity implements LocationFinder.Location
         }
      });
      //this.progressDialog = ProgressDialog.show(this, "", "Searching for your location...", true, false);
-     //new LocationFinder().getLocation(this, this);
+     //new LocationFinder().getLocation(this, this); 
      this.loadMapOverlay((MapView) findViewById(R.id.ma_map), new GeoPoint((int) (40.778624 * 1E6), (int) (-73.953567 * 1E6)));
     }
     

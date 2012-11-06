@@ -8,5 +8,5 @@
     <style name="medium_text" parent = "@android:style/TextAppearance.Medium">
         <item name = "android:textColor">#E4C768</item>
     </style>
-
+    
 </resources>
