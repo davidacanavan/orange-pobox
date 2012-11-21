@@ -61,14 +61,14 @@ public class AddressActivity extends Activity implements OnItemSelectedListener 
                  citySp.setAdapter(cityAdapter);	 
              }
 
-             
-             if(country.equals("Ireland")) {
+             //RH@C taking off the ireland
+             /*if(country.equals("Ireland")) {
                  //populating the city spinner
                  ArrayAdapter<CharSequence> cityAdapter = ArrayAdapter.createFromResource
         	    		 (getApplicationContext(), R.array.cities_ireland, R.layout.spinner_txt_color);
                  cityAdapter.setDropDownViewResource(R.layout.spinner_txt_color);
                  citySp.setAdapter(cityAdapter);
-             }
+             }*/
              //End of redundant code the spinner is filled up with cities
          }
          public void onNothingSelected(AdapterView<?> arg0) { }         

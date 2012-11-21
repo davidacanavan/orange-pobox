@@ -14,7 +14,13 @@ public class Database extends SQLiteOpenHelper
     public void onCreate(SQLiteDatabase db)
     {
      db.execSQL(StoreLocation.getTableCreationString());
-     StoreLocation.create(db, "United States", "New York", "New York City", "105 W 86TH ST", "NY 10024", (int) (40.786781 * 1E6), (int) (-73.972435 * 1E6));
+     StoreLocation.create(db, "United States", "New York", "New York City", "105 W 86TH ST", "NY 10024", (int) (40.786781 * 1E6), (int) (-73.972435 * 1E6), (int) (212-202-0534), (int) (646-253-7756), "store5979@theupsstore.com");
+     StoreLocation.create(db, "USA", "Illinois", "Chicago", "910 W VAN BUREN", "IL 60607-3523", (int) (41.876703 * 1E6), (int) (-87.650055 * 1E6), (int)(312-226-3333), (int)(312-226-3335), "store3571@theupsstore.com");
+     StoreLocation.create(db, "USA", "Colorado", "Denver", "1550 LARIMER ST", "DENVER, CO 80202-1602", (int) (39.749006 * 1E6), (int) (-104.997708 * 1E6), (int)(303-825-8060), (int)(303-825-8056), "store1024@theupsstore.com");
+     StoreLocation.create(db, "Canada", "Quebec", "Montreal", "3450 ST DENIS ST", "MONTREAL,QC,H2X3L3", (int) (45.5172 * 1E6), (int) (-73.568389 * 1E6), (int)(514-508-1444), (int)(514-508-1445), "store459@theupsstore.ca");
+     StoreLocation.create(db, "Canada", "Toronto", "Ontario", "2 TORONTO ST", "TORONTO,ON,M5C2B5", (int) (43.649803 * 1E6), (int) (-79.376081 * 1E6), (int)(416-363-8331), (int)(416-363-2588), "store336@theupsstore.ca");
+     StoreLocation.create(db, "Canada", "British Columbia", "Vancouver", "2818 MAIN STREET", "VANCOUVER,BC,V5T0C1", (int) (49.259932 * 1E6), (int) (-123.100858 * 1E6), (int)(604-874-6860), (int)(604-874-6885), "store407@theupsstore.ca");
+     /*RH@C Commenting this out as the demo version shows three stores per city. We can get back to this later
      StoreLocation.create(db, "United States", "New York", "New York City", "366 AMSTERDAM AVE", "NY 10024", (int) (40.782163 * 1E6), (int) (-73.979171 * 1E6));
      StoreLocation.create(db, "United States", "New York", "New York City", "119 W 72ND ST", "NY 10023", (int) (40.777857 * 1E6), (int) (-73.979461 * 1E6));
      StoreLocation.create(db, "United States", "New York", "New York City", "1202 LEXINGTON AVE", "NY 10028-1425", (int) (40.776682 * 1E6), (int) (-73.957791 * 1E6));
@@ -33,7 +39,7 @@ public class Database extends SQLiteOpenHelper
      StoreLocation.create(db, "United States", "New York", "New York City", "55 W 116TH ST", " NY 10026", (int) (40.800794 * 1E6), (int) (-73.946764 * 1E6));
      StoreLocation.create(db, "United States", "New York", "New York City", "603 W 115TH ST", "NY 10025-7816", (int) (40.807576 * 1E6), (int) (-73.964945 * 1E6));
      StoreLocation.create(db, "United States", "New York", "New York City", "1040 1ST AVE", "NY 10022-2902", (int) (40.758154 * 1E6), (int) (-73.963068 * 1E6));
-     StoreLocation.create(db, "United States", "New York", "New York City", "694 10th Avenue", "NY 10019", (int) (40.763703 * 1E6), (int) (-73.992308 * 1E6));
+     StoreLocation.create(db, "United States", "New York", "New York City", "694 10th Avenue", "NY 10019", (int) (40.763703 * 1E6), (int) (-73.992308 * 1E6));*/
     }
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
