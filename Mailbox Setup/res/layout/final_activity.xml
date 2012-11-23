@@ -36,33 +36,11 @@
                     android:id="@+id/textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Pick by store address..."
+                    android:text="Mailbox request sent"
                     android:textAppearance="@style/medium_text" />
                 			
             </LinearLayout>
         </RelativeLayout>
     </LinearLayout>
-    
-                <Spinner
-                    android:id="@+id/countries_spinner"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:entries="@array/countries" />
-
-                <Spinner
-                    android:id="@+id/cities_spinner"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:cacheColorHint="#00000000" />
-                
-                <Button
-                    android:id="@+id/ae_find_store"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:onClick="findStore"
-                    android:text="Find a store" />
 
 </LinearLayout>

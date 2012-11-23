@@ -1,5 +1,6 @@
 package com.orange.pobox.db;
 
+import java.io.Serializable;
 import java.util.List;
 
 import android.content.ContentValues;
@@ -9,9 +10,9 @@ import android.database.sqlite.SQLiteDatabase;
 import com.google.android.maps.GeoPoint;
 import com.orange.pobox.MinimumLinkedList;
 
-public class StoreLocation
+public class StoreLocation implements Serializable
 {
-    private StoreLocation(long key, String country, String state, String city, String street, String zip, 
+	private StoreLocation(long key, String country, String state, String city, String street, String zip, 
     		String phone, String fax, String email, int latitude, int longitude)
     {
      this.key = key;
@@ -158,6 +159,7 @@ public class StoreLocation
          VAR_EMAIL = "email", VAR_LATITUDE = "latitude", VAR_LONGITUDE = "longitude";
  private static final int IND_KEY = 0, IND_COUNTRY = 1, IND_STATE = 2, IND_CITY = 3, IND_STREET = 4, IND_ZIP = 5, 
          IND_PHONE = 6, IND_FAX = 7, IND_EMAIL = 8, IND_LATITUDE = 9, IND_LONGITUDE = 10;
+ private static final long serialVersionUID = 1L;
 }
 
 

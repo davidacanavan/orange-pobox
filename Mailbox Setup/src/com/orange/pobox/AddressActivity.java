@@ -13,6 +13,7 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 
 public class AddressActivity extends Activity 
@@ -29,18 +30,19 @@ public class AddressActivity extends Activity
      
      adapter.setDropDownViewResource(R.layout.spinner_txt_color);
 
-     citySp.setOnItemSelectedListener(new OnItemSelectedListener() {
-         public void onItemSelected(AdapterView<?> arg0, View view, int position, long id) {
-        	 city = citySp.getSelectedItem().toString();}
+     citySp.setOnItemSelectedListener(new OnItemSelectedListener() 
+     {
+         public void onItemSelected(AdapterView<?> arg0, View view, int position, long id) 
+         {
+          city = citySp.getSelectedItem().toString();
+         }
 
-		@Override
-		public void onNothingSelected(AdapterView<?> arg0) {
-			// TODO Auto-generated method stub
-			
-		}});
+		public void onNothingSelected(AdapterView<?> arg0) {}});
      
-     countriesSp.setOnItemSelectedListener(new OnItemSelectedListener() {
-         public void onItemSelected(AdapterView<?> arg0, View view, int position, long id) {
+     countriesSp.setOnItemSelectedListener(new OnItemSelectedListener() 
+     {
+         public void onItemSelected(AdapterView<?> arg0, View view, int position, long id) 
+         {
         	 country = countriesSp.getSelectedItem().toString();
              
              //Bunch of redundant code it however does the trick as a demo
@@ -71,13 +73,22 @@ public class AddressActivity extends Activity
              }*/
              //End of redundant code the spinner is filled up with cities
          }
-         public void onNothingSelected(AdapterView<?> arg0) { }         
+         
+         public void onNothingSelected(AdapterView<?> arg0) {}         
      });
    
      //End of RH@C
+     
+     ((Button) findViewById(R.id.ae_find_store)).setOnClickListener(new View.OnClickListener() 
+     {
+		public void onClick(View view) 
+		{
+		 findStoreButtonClicked();
+		}
+	 });
     }
     
-    public void findStore(View v)
+    public void findStoreButtonClicked()
     {
      Geocoder coder = new Geocoder(this);
      
@@ -92,7 +103,7 @@ public class AddressActivity extends Activity
      	}
      	catch (IOException e)
      	{
-     	 // TODO Do something when we can't find the adress!!!!! Just make sure we test these well
+     	 // TODO Do something when we can't find the address!!!!! Just make sure we test these well
      	}
     }
 

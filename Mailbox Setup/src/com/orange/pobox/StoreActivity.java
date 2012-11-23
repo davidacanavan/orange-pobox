@@ -99,8 +99,12 @@ public class StoreActivity extends MapActivity
 
     private void mapOverlayItemClicked(int index)
     {
-     storeListView.smoothScrollToPosition(index);
-     storeListView.setSelection(index);
+     //storeListView.smoothScrollToPosition(index);
+     //storeListView.setSelection(index);
+     StoreLocation storeLocation = locations.get(index); // Get the selected location
+     Intent intent = new Intent(this, FinalActivity.class);
+     intent.putExtra(FinalActivity.INTENT_INPUT_STORE_LOCATION, storeLocation);
+     this.startActivity(intent);
     }
     
     private Drawable resize(Resources resources, Drawable image, int dpWidth, int dpHeight) 
