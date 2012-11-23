@@ -3,7 +3,7 @@ package com.orange.pobox.pdf;
 import java.io.File;
 import java.util.Properties;
 
-import javax.activation.DataHandler;
+/*import javax.activation.DataHandler;
 import javax.activation.FileDataSource;
 import javax.mail.BodyPart;
 import javax.mail.Message;
@@ -13,10 +13,10 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
+import javax.mail.internet.MimeMultipart;*/
 
 public class EmailSender {
-
+/*
 	private String fileName;
 	private File file;
 	private String emailAddr;
@@ -136,5 +136,5 @@ public class EmailSender {
 		} catch (Exception e){
 			e.printStackTrace();
 		}
-	}
+	}*/
 }

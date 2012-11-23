@@ -1,6 +1,6 @@
 package com.orange.pobox.pdf;
 
-import 
+//import 
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -11,7 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import android.graphics.Color;
-
+/*
 import com.klg.jclass.page.JCDocument;
 import com.klg.jclass.page.JCDrawStyle;
 import com.klg.jclass.page.JCFlow;
@@ -21,9 +21,9 @@ import com.klg.jclass.page.JCPrinter;
 import com.klg.jclass.page.JCTableStyle;
 import com.klg.jclass.page.JCTextStyle;
 import com.klg.jclass.page.JCUnit;
-import com.klg.jclass.page.adobe.pdf.JCPDFPrinter;
+import com.klg.jclass.page.adobe.pdf.JCPDFPrinter;*/
 
-public class UPSpdfGenerator implements UPSPdfCreator{
+public class UPSpdfGenerator {/*implements UPSPdfCreator{
 	
 	private UPSCustomerInfo custInfo;
 	
@@ -566,5 +566,5 @@ public class UPSpdfGenerator implements UPSPdfCreator{
 			ex.printStackTrace();
 		}
 		
-	}
+	}*/
 }
