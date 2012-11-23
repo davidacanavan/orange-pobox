@@ -1,6 +1,7 @@
 package com.orange.pobox.pdf;
 
-import 
+import java.awt.Color;
+import java.awt.Image;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -9,8 +10,6 @@ import java.io.OutputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
-import android.graphics.Color;
 
 import com.klg.jclass.page.JCDocument;
 import com.klg.jclass.page.JCDrawStyle;
