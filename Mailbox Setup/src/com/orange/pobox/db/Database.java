@@ -14,12 +14,12 @@ public class Database extends SQLiteOpenHelper
     public void onCreate(SQLiteDatabase db)
     {
      db.execSQL(StoreLocation.getTableCreationString());
-     StoreLocation.create(db, "United States", "New York", "New York City", "105 W 86TH ST", "NY 10024", (int) (40.786781 * 1E6), (int) (-73.972435 * 1E6), (int) (212-202-0534), (int) (646-253-7756), "store5979@theupsstore.com");
-     StoreLocation.create(db, "USA", "Illinois", "Chicago", "910 W VAN BUREN", "IL 60607-3523", (int) (41.876703 * 1E6), (int) (-87.650055 * 1E6), (int)(312-226-3333), (int)(312-226-3335), "store3571@theupsstore.com");
-     StoreLocation.create(db, "USA", "Colorado", "Denver", "1550 LARIMER ST", "DENVER, CO 80202-1602", (int) (39.749006 * 1E6), (int) (-104.997708 * 1E6), (int)(303-825-8060), (int)(303-825-8056), "store1024@theupsstore.com");
-     StoreLocation.create(db, "Canada", "Quebec", "Montreal", "3450 ST DENIS ST", "MONTREAL,QC,H2X3L3", (int) (45.5172 * 1E6), (int) (-73.568389 * 1E6), (int)(514-508-1444), (int)(514-508-1445), "store459@theupsstore.ca");
-     StoreLocation.create(db, "Canada", "Toronto", "Ontario", "2 TORONTO ST", "TORONTO,ON,M5C2B5", (int) (43.649803 * 1E6), (int) (-79.376081 * 1E6), (int)(416-363-8331), (int)(416-363-2588), "store336@theupsstore.ca");
-     StoreLocation.create(db, "Canada", "British Columbia", "Vancouver", "2818 MAIN STREET", "VANCOUVER,BC,V5T0C1", (int) (49.259932 * 1E6), (int) (-123.100858 * 1E6), (int)(604-874-6860), (int)(604-874-6885), "store407@theupsstore.ca");
+     StoreLocation.create(db, "United States", "New York", "New York City", "105 W 86TH ST", "NY 10024", "212-202-0534", "646-253-7756", "store5979@theupsstore.com", (int) (40.786781 * 1E6), (int) (-73.972435 * 1E6));
+     StoreLocation.create(db, "USA", "Illinois", "Chicago", "910 W VAN BUREN", "IL 60607-3523", "312-226-3333", "312-226-3335", "store3571@theupsstore.com", (int) (41.876703 * 1E6), (int) (-87.650055 * 1E6));
+     StoreLocation.create(db, "USA", "Colorado", "Denver", "1550 LARIMER ST", "DENVER, CO 80202-1602", "303-825-8060", "303-825-8056", "store1024@theupsstore.com", (int) (39.749006 * 1E6), (int) (-104.997708 * 1E6));
+     StoreLocation.create(db, "Canada", "Quebec", "Montreal", "3450 ST DENIS ST", "MONTREAL,QC,H2X3L3", "514-508-1444", "514-508-1445", "store459@theupsstore.ca", (int) (45.5172 * 1E6), (int) (-73.568389 * 1E6));
+     StoreLocation.create(db, "Canada", "Toronto", "Ontario", "2 TORONTO ST", "TORONTO,ON,M5C2B5", "416-363-8331", "416-363-2588", "store336@theupsstore.ca", (int) (43.649803 * 1E6), (int) (-79.376081 * 1E6));
+     StoreLocation.create(db, "Canada", "British Columbia", "Vancouver", "2818 MAIN STREET", "VANCOUVER,BC,V5T0C1", "604-874-6860", "604-874-6885", "store407@theupsstore.ca", (int) (49.259932 * 1E6), (int) (-123.100858 * 1E6));
      /*RH@C Commenting this out as the demo version shows three stores per city. We can get back to this later
      StoreLocation.create(db, "United States", "New York", "New York City", "366 AMSTERDAM AVE", "NY 10024", (int) (40.782163 * 1E6), (int) (-73.979171 * 1E6));
      StoreLocation.create(db, "United States", "New York", "New York City", "119 W 72ND ST", "NY 10023", (int) (40.777857 * 1E6), (int) (-73.979461 * 1E6));
