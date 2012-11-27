@@ -1,9 +1,14 @@
 package com.orange.pobox;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.Window;
@@ -44,13 +49,26 @@ public class FinalActivity extends Activity
      intent.putExtra(Intent.EXTRA_SUBJECT, "Mailbox Application: " + customerInfo.getFirstName() 
     		 + " " + customerInfo.getSurname());
      intent.putExtra(Intent.EXTRA_EMAIL, new String[] {"teamorangecontext@gmail.com"});
+     
+     
+     	try
+     	{
+     	 System.out.println("Saving file to html");
+     	 FileOutputStream out = this.openFileOutput("temporary_ups_email.html", Context.MODE_WORLD_READABLE);
+     	 out.write(HtmlFormGenerator.getHtmlString(storeLocation, customerInfo).getBytes());
+     	 out.close();
+     	 System.out.println("File saved");
+     	}
+     	catch (IOException e) {}//TODO Sort the IO error out
+     	
      intent.putExtra(
     		 Intent.EXTRA_TEXT,
     		 Html.fromHtml(new StringBuilder()
-		     .append(HtmlFormGenerator.getHtmlString(storeLocation, customerInfo))
+		     .append("<p>Customer Application...</p>")
     		 .toString())
     		 );
      intent.setType("text/html");
+     intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(getFileStreamPath("temporary_ups_email.html")));
      this.startActivity(intent);
     }
 

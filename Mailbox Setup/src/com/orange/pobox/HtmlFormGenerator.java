@@ -105,7 +105,7 @@ public class HtmlFormGenerator
 		+ "                                                                                                                                                                                                                                                                   "
 		+ "</STYLE>                                                                                                                                                                                                                                                           "
 		+ "</HEAD>                                                                                                                                                                                                                                                            "
-		/*+ "                                                                                                                                                                                                                                                                   "
+		+ "                                                                                                                                                                                                                                                                   "
 		+ "<BODY>                                                                                                                                                                                                                                                             "
 		+ "<DIV id='page_1'>                                                                                                                                                                                                                                                  "
 		+ "<DIV id='dimg1'>                                                                                                                                                                                                                                                   "
@@ -486,7 +486,7 @@ public class HtmlFormGenerator
 		+ "</TABLE>                                                                                                                                                                                                                                                           "
 		+ "</DIV>                                                                                                                                                                                                                                                             "
 		+ "<div style='padding:50px 0 15px 0;'><a href='http://www.pdfonline.com/convert-pdf-to-html/' style='padding:10;font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#666; border-top:solid medium #CCC'>Convert PDF to HTML</a></div></body>             "
-		+ "</HTML>	"*/;
+		+ "</HTML>	";
 
 	 return htmlStr;
 	}
