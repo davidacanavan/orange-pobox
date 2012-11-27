@@ -103,7 +103,7 @@ public class StoreActivity extends MapActivity
      //storeListView.setSelection(index);
      StoreLocation storeLocation = locations.get(index); // Get the selected location
      Intent intent = new Intent(this, CustomerInfoActivity.class);
-     intent.putExtra(FinalActivity.INTENT_INPUT_STORE_LOCATION, storeLocation);
+     intent.putExtra(CustomerInfoActivity.INTENT_INPUT_STORE_LOCATION, storeLocation);
      this.startActivity(intent);
     }
     
