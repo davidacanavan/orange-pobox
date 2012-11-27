@@ -60,12 +60,13 @@
                 android:layout_marginTop="12dp"
                 android:text="First Name"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
-
+
             <EditText
                 android:id="@+id/cia_first_name_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10" >
+                android:ems="10"
+                android:text="Roman" >
 
                 <requestFocus />
             </EditText>
@@ -77,12 +78,13 @@
                 android:layout_marginTop="12dp"
                 android:text="Surname"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
-
+
             <EditText
                 android:id="@+id/cia_surname_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10" />
+                android:ems="10"
+                android:text="Hurtik" />
 
             <TextView
                 android:id="@+id/cia_email"
@@ -91,13 +93,14 @@
                 android:layout_marginTop="12dp"
                 android:text="Email"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
-
+
             <EditText
                 android:id="@+id/cia_email_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:text="ronlinet@gmail.com" />
 
             <TextView
                 android:id="@+id/cia_home_phone"
@@ -106,13 +109,14 @@
                 android:layout_marginTop="12dp"
                 android:text="Home Phone"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
-
+
             <EditText
                 android:id="@+id/cia_home_phone_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="phone" />
+                android:inputType="phone"
+                android:text="01-2824266" />
 
             <TextView
                 android:id="@+id/cia_mobile_phone"
@@ -121,13 +125,14 @@
                 android:layout_marginTop="12dp"
                 android:text="Mobile Phone"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
-
+
             <EditText
                 android:id="@+id/cia_mobile_phone_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="phone" />
+                android:inputType="phone"
+                android:text="0857122311" />
 
             <TextView
                 android:id="@+id/cia_street_address"
@@ -136,12 +141,13 @@
                 android:layout_marginTop="12dp"
                 android:text="Street Address"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
-
+
             <EditText
                 android:id="@+id/cia_street_address_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10" />
+                android:ems="10"
+                android:text="14 Seafield Road, Killiney" />
 
             <TextView
                 android:id="@+id/cia_city"
@@ -150,12 +156,13 @@
                 android:layout_marginTop="12dp"
                 android:text="City"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
-
+
             <EditText
                 android:id="@+id/cia_city_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10" />
+                android:ems="10"
+                android:text="Dublin" />
 
             <TextView
                 android:id="@+id/cia_county"
@@ -164,12 +171,13 @@
                 android:layout_marginTop="12dp"
                 android:text="County"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
-
+
             <EditText
                 android:id="@+id/cia_county_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10" />
+                android:ems="10"
+                android:text="Dublin" />
 
             <TextView
                 android:id="@+id/cia_state"
@@ -178,12 +186,13 @@
                 android:layout_marginTop="12dp"
                 android:text="State"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
-
+
             <EditText
                 android:id="@+id/cia_state_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10" />
+                android:ems="10"
+                android:text="Dublin" />
 
             <TextView
                 android:id="@+id/cia_country"
@@ -192,12 +201,13 @@
                 android:layout_marginTop="12dp"
                 android:text="Country"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
-
+
             <EditText
                 android:id="@+id/cia_country_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10" />
+                android:ems="10"
+                android:text="Ireland" />
 
             <TextView
                 android:id="@+id/cia_zip_code"
@@ -206,24 +216,23 @@
                 android:layout_marginTop="12dp"
                 android:text="Zip Code"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
-
+
             <EditText
                 android:id="@+id/cia_zip_code_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10" />
-
+                android:ems="10"
+                android:text="90210" />
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="2" >
-
+                android:layout_height="wrap_content" >
+
                 <Button
                     android:id="@+id/cia_submit_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Button" />
+                    android:text="Confirm" />
 
             </LinearLayout>
 

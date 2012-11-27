@@ -75,6 +75,11 @@ public class CustomerInfo implements Serializable
 	 return this.zipCode;
 	}
 	
+	public String getFullAddress()
+	{
+	 return getStreetAddress() + ", " + getCity() + ", " + getCounty() + ", " + getState() + ", " + getCountry() + ", " + getZipCode();
+	}
+	
  private String firstname, surname, email, homePhone, mobilePhone, streetAddress, 
  	city, county, state, country, zipCode;
  private static final long serialVersionUID = 1L;
